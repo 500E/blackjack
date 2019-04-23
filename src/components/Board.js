@@ -26,20 +26,13 @@ font-size: 1rem;
 
 class Board extends Component {
   state = {
-    player: null,
-    deck: [],
+    player: getRandomItem([ 1, 2 ]),
+    deck: generateDeck(cards),
     card1: [],
     card2: [],
     score1: null,
     score2: null
   };
-
-  componentDidMount() {
-    this.setState({
-      player: getRandomItem([ 1, 2 ]),
-      deck: generateDeck(cards)
-    });
-  }
 
   handleClick = (e) => {
     const deck = [ ...this.state.deck ];
